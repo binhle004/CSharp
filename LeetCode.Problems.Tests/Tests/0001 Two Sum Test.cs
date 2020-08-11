@@ -1,16 +1,15 @@
-using LeetCode.Problems.Tests.Problem1Data;
 using System.Collections.Generic;
 using System.Reflection;
 using Xunit;
 using Xunit.Sdk;
 
-namespace LeetCode.Problems.Tests
+namespace LeetCode.Problems.Tests.Problem1
 {
-    public class Problem1
+    public class TwoSumTest
     {
         [Theory]
-        [Problem1TestData]
-        public void Two_Sum_Brute_Force(int[] nums, int target, int[] expected)
+        [TestData]
+        public void Brute_Force(int[] nums, int target, int[] expected)
         {
             var result = new TwoSum_BruteForce().TwoSum(nums, target);
 
@@ -18,19 +17,16 @@ namespace LeetCode.Problems.Tests
         }
 
         [Theory]
-        [Problem1TestData]
-        public void Two_Sum_One_Pass(int[] nums, int target, int[] expected)
+        [TestData]
+        public void One_Pass(int[] nums, int target, int[] expected)
         {
             var result = new TwoSum_OnePass().TwoSum(nums, target);
 
             Assert.Equal(expected, result);
         }
     }
-} 
 
-namespace LeetCode.Problems.Tests.Problem1Data
-{
-    public class Problem1TestData : DataAttribute
+    public sealed class TestData : DataAttribute
     {
         public override IEnumerable<object[]> GetData(MethodInfo testMethod)
         {
